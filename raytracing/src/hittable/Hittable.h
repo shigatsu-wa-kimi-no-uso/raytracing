@@ -3,16 +3,18 @@
 #define HITTABLE_H
 #include <memory>
 #include <vector>
-#include "Ray.h"
-#include "Interval.h"
+#include "../Ray.h"
+#include "../Interval.h"
+#include "../material/Material.h"
 
 using std::shared_ptr;
 using std::make_shared;
 
-struct HitRecord 
+struct HitRecord
 {
     Point3 point;
     Vec3 normal;
+    shared_ptr<Material> material;
     double t;
     bool front_face;
 };

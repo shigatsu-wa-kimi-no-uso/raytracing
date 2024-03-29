@@ -8,9 +8,11 @@ class Sphere : public Hittable
 private:
     Point3 _center;
     double _radius;
+    shared_ptr<Material> _material;
 public:
 
-    Sphere(Point3 center, double radius) : _center(center), _radius(radius) {}
+    Sphere(Point3 center, double radius, shared_ptr<Material> material) 
+        : _center(center), _radius(radius), _material(material){}
     //Sphere: (P-C).*(P-C) = r^2
     //Ray: P(t) = A-t*b   A为光线发射点(取camera的中心),b为光线的方向
     //联立求解: (A-t*b).*(A-t*b)=r^2 =>  (b.*b)*t^2 + 2*(b.*(A-C))*t + (A-C).*(A-C)-r^2=0
@@ -39,6 +41,7 @@ public:
 
         rec.t = root;
         rec.point = r.at(rec.t);
+        rec.material = _material;
         Vec3 outward_normal = (rec.point - _center) / _radius;
         set_face_normal(r, outward_normal, rec);
 

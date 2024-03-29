@@ -134,11 +134,15 @@
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\material\Dielectric.h" />
+    <ClInclude Include="src\material\Lambertian.h" />
+    <ClInclude Include="src\material\Material.h" />
     <ClInclude Include="src\Interval.h" />
-    <ClInclude Include="src\Sphere.h" />
+    <ClInclude Include="src\hittable\Sphere.h" />
+    <ClInclude Include="src\material\Metal.h" />
     <ClInclude Include="src\Ray.h" />
     <ClInclude Include="src\global.h" />
-    <ClInclude Include="src\Hittable.h" />
+    <ClInclude Include="src\hittable\Hittable.h" />
     <ClInclude Include="src\Camera.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
